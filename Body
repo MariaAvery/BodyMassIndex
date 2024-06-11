@@ -1,0 +1,67 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BodyMass
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+
+        {   // Message to user before they enter info
+            // Lets them know what to expect using this program
+            Console.WriteLine(@"
+            ****************** WELCOME TO THE BMI CALCULATOR ************************
+            *************************************************************************
+            Here you'll be asked enter your weight (in pounds) and height (in inches)
+            ********* By doing so we'll give you your body mass index ***************
+            *************************************************************************
+            ****************************** LETS GET STARTED! ************************");
+
+            // Puts line between message to user and prompt
+            Console.WriteLine("\n");
+
+            // Prompts user to enter their weight in pounds
+            Console.WriteLine("Enter your weight in pounds :\n");
+
+            // Stores users weight 
+            double weightInPounds = double.Parse(Console.ReadLine());
+
+            // Prompts user to enter their height in inches
+            Console.WriteLine("Enter your height in inches : \n");
+
+            // Stores users height 
+            double heightInInches = double.Parse(Console.ReadLine());
+
+            // Calculates users bmi and stores it in a double named bmi
+            double bmi = (weightInPounds * 703) / (heightInInches * heightInInches);
+
+
+            // If users bmi is under 18.5 program prints out that the user is underwight
+            if (bmi < 18.5)
+            {
+                Console.WriteLine($"Your bmi is {bmi}, this is considered underweight.\n");
+            }
+            // If users bmi is between 18.5 and 24.9 program prints out that the user is normal
+            else if (bmi >=18.5 && bmi <=24.9)
+            {
+                Console.WriteLine($"Your bmi is {bmi}, this is considered normal.\n");
+
+            }
+            // If users bmi is between 25 and 29.9 program prints out that the user is overweight
+            else if (bmi >= 25 && bmi <= 29.9)
+            {
+                Console.WriteLine($"Your bmi is {bmi}, this is considered overweight!\n");
+            }
+            // If users bmi is over 30 program prints out that the user is obese
+            else if (bmi > 30)
+            {
+                Console.WriteLine($"Your bmi is {bmi}, this is considered obese!\n");
+            }
+            // Says thank you to user and prompts them to exit
+            Console.WriteLine("Thank you for using the BMI Calculator!");
+        }
+    }
+}
